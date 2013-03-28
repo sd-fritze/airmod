@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .class
 .jar
 net/
@@ -12,3 +13,11 @@ fml_marker.cfg
 forge_logo.png
 mcpmod.info
 fmlversion.properties
+=======
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+>>>>>>> 41753a2902dfacff6ec131bf1015c0c39cfc3c15
