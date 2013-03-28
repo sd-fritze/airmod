@@ -1,0 +1,14 @@
+.class
+.jar
+net/
+cpw/
+ibxm/
+paulscode/
+Start.java
+fml_at.cfg
+forge_at.cfg
+mcp.png
+fml_marker.cfg
+forge_logo.png
+mcpmod.info
+fmlversion.properties
