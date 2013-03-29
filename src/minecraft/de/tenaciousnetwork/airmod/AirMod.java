@@ -47,7 +47,8 @@ public class AirMod
     {
             proxy.registerRenderers();
             blockCompressor = new BlockCompressor(compressorID, Material.rock).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("airmod:compressor");
-            GameRegistry.registerBlock(blockCompressor);
+            
+            GameRegistry.registerTileEntity(TileEntityCompressor.class, "airmod.TEcompressor");
             GameRegistry.addRecipe(new ItemStack(blockCompressor, 1),new Object[]{"#", Character.valueOf('#'), Item.stick});
     }
    
