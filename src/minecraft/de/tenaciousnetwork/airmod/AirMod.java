@@ -47,7 +47,7 @@ public class AirMod
     public void load(FMLInitializationEvent event) 
     {
             proxy.registerRenderers();
-            blockCompressor = new BlockCompressor(compressorID, Material.rock).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("airmod:compressor");
+            blockCompressor = new BlockCompressor(compressorID, Material.rock).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("airmod:compf_unlit");
             fluidAir 		= new FluidAir(airID).setUnlocalizedName("airmod:air");
             GameRegistry.registerItem(fluidAir, "air");
             GameRegistry.registerTileEntity(TileEntityCompressor.class, "airmod.TEcompressor");
