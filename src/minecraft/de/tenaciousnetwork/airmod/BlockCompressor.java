@@ -5,9 +5,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.liquids.ILiquidTank;
@@ -29,9 +32,8 @@ public class BlockCompressor extends Block
 
 	/* (non-Javadoc)
 	 * @see net.minecraft.block.Block#getBlockTextureFromSideAndMetadata(int, int)
-	 */
+//	 */
 	@Override
-	@SideOnly(Side.CLIENT)
 	public Icon getBlockTextureFromSideAndMetadata(int side, int meta) 
 	{
 		if (side == 0){
@@ -55,6 +57,37 @@ public class BlockCompressor extends Block
     {
         return new TileEntityCompressor();
     }
+
+	/* (non-Javadoc)
+	 * @see net.minecraft.block.Block#onBlockPlacedBy(net.minecraft.world.World, int, int, int, net.minecraft.entity.EntityLiving, net.minecraft.item.ItemStack)
+	 */
+	@Override
+	 public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving, ItemStack par6ItemStack)
+    {
+        int l = MathHelper.floor_double((double)(par5EntityLiving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+
+        if (l == 0)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 2);
+        }
+
+        if (l == 1)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 2);
+        }
+
+        if (l == 2)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 2);
+        }
+
+        if (l == 3)
+        {
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 2);
+        }
+    }
+
+
 
     
 }

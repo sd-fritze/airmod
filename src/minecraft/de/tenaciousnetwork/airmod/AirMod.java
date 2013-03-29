@@ -51,9 +51,9 @@ public class AirMod
             fluidAir 		= new FluidAir(airID).setUnlocalizedName("airmod:air");
             GameRegistry.registerItem(fluidAir, "air");
             GameRegistry.registerTileEntity(TileEntityCompressor.class, "airmod.TEcompressor");
+            GameRegistry.registerBlock(blockCompressor, "airmod:compf_unlit");
             GameRegistry.addRecipe(new ItemStack(blockCompressor, 1),new Object[]{"#", Character.valueOf('#'), Item.stick});
             GameRegistry.addRecipe(new ItemStack(fluidAir, 1),new Object[]{"#", Character.valueOf('#'), Block.dirt});
-
     }
    
     @PostInit
