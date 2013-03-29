@@ -28,8 +28,8 @@ public class AirMod
     public static CommonProxy proxy;
     
     public static Block blockCompressor;
-    
-    private int compressorID;
+    public static Item fluidAir;
+    private int compressorID, airID;
    
     @PreInit
     public void preInit(FMLPreInitializationEvent event) 
@@ -38,6 +38,7 @@ public class AirMod
     	config.load();
     	
     	compressorID = config.getBlock("compID", 3750, "Block ID for Compressor").getInt();
+    	airID		 = config.getItem("airID", 22350, "Item ID for AIR!").getInt();
     	
     	config.save();    	
     }
@@ -47,9 +48,12 @@ public class AirMod
     {
             proxy.registerRenderers();
             blockCompressor = new BlockCompressor(compressorID, Material.rock).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("airmod:compressor");
-            
+            fluidAir 		= new FluidAir(airID).setUnlocalizedName("airmod:air");
+            GameRegistry.registerItem(fluidAir, "air");
             GameRegistry.registerTileEntity(TileEntityCompressor.class, "airmod.TEcompressor");
             GameRegistry.addRecipe(new ItemStack(blockCompressor, 1),new Object[]{"#", Character.valueOf('#'), Item.stick});
+            GameRegistry.addRecipe(new ItemStack(fluidAir, 1),new Object[]{"#", Character.valueOf('#'), Block.dirt});
+
     }
    
     @PostInit
