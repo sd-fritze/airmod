@@ -9,6 +9,10 @@ fml_at.cfg
 forge_at.cfg
 mcp.png
 fml_marker.cfg
+fmlversion.properties
 forge_logo.png
 mcpmod.info
-
+.sh
+.bat
+.py
+temp/
